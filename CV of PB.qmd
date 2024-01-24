@@ -1,9 +1,18 @@
 ---
-title: "CV Paul Beard"
+title: "Paul Beard FIA"
 format: pdf
 editor: visual
+fig-width: 6
+fig-asp: 0.618
+out-width: "70%" 
+fig-align: center
+mainfont: Arial
+fontsize: 10pt
+
+
 execute: 
   echo: false
+fig-pos: "H"
 ---
 
 ```{r}
@@ -11,6 +20,8 @@ execute:
 #| include: false
 
 library(tidyverse)
+library(kableExtra)
+
 
 data.loc <- "./Data"
 data.filename <- "Work History Summary.xlsx"
@@ -28,8 +39,6 @@ cvdata <- read.all.excel.sheets(data.filepath)
 
 ```
 
-## **Paul Beard FIA**
-
 **Summary**
 
 -   I am a high performing Fellow of the Institute of Actuaries working in the life insurance industry for 10 years, with 5 years post qualification. I have a diverse range of work experience with my main areas of speciality being:
@@ -42,23 +51,31 @@ cvdata <- read.all.excel.sheets(data.filepath)
 
 <!-- -->
 
--   I am proficient across a variety of platforms, with emphasis on Excel and R (see Figure 1). I can develop complex models; build self-checks; debug established code; and peer review work. I am also capable of methodology development, and have done this across a variety of areas through my career. I am meticulous and am able to think through any complexities encountered. I am technically minded and am capable of finding solutions to novel problems.
+-   I am proficient across a variety of platforms, with emphasis on Excel and R (see @fig-software-experience). I can develop complex models; build self-checks; debug established code; and peer review work. I am also capable of methodology development, and have done this across a variety of areas through my career. I am meticulous and am able to think through any complexities encountered. I am technically minded and am capable of finding solutions to novel problems.
 
 <!-- -->
 
--   I have a fantastic track record of performance, both academically (see Table 1) and in a work environment (see Figure 2).
+-   I have a fantastic track record of performance, both academically (see @tbl-qual-hist) and in a work environment (see @fig-RL-Performance).
 
 **Qualifications**
 
-**Table 1: Qualification History**
-
-| Qualification | Awarded By              | Grade            | Subject(s)                   | Date     |
-|---------------|---------------|---------------|---------------|---------------|
-| Fellowship    | IFoA                    |                  | SA2, ST2, ST6                | Dec 2017 |
-| Bachelors     | University of Cambridge | 1                | Natural Sciences (Chemistry) | Jul 2011 |
-| Masters       | University of Cambridge | 2.i              | Natural Sciences (Chemistry) | Jul 2011 |
-| A Level       |                         | A (x5)           | Maths, Further Maths, Other  | Aug 2007 |
-| GCSE          |                         | A\* (x8); A (x3) | Maths, English, Other        | Aug 2005 |
+```{r}
+#| label: tbl-qual-hist
+#| tbl-cap: "Qualification History"
+#| tbl-cap-location: top
+#| warning: false
+#| 
+qual.hist <- 
+tribble(~Qualification,~`Awarded By`,~Grade,~`Subject(s)`,~Date,
+        "Fellowship", "IFoA", NA, "SA2, ST2, ST6", "Dec 2017",
+        "Bachelors", "University of Cambridge", "1", "Natural Sciences (Chemistry)", "Jul 2011",
+        "Masters", "University of Cambridge", "2.i", "Natural Sciences (Chemistry)", "Jul 2011",
+        "A Level", NA, "A (x5)", "Maths, Further Maths, ...", "Aug 2007",
+        "GCSE", NA, "A* (x8); A (x3)", "Maths, English, ...", "Aug 2005")
+kableExtra::kable(qual.hist, booktabs = TRUE) %>%
+  row_spec(row = 0, background = "steelblue1") %>%
+  kable_styling(latex_options = "scale_down")
+```
 
 Other achievements include:
 
@@ -118,10 +135,12 @@ With Profits Management (Sept 2012 – March 2018)
 
 **Software Experience**
 
-**Figure 1: Summary of Modelling Experience**
-
 ```{r}
-#| label: software-experience
+#| label: fig-software-experience
+#| fig-cap: "Summary of Modelling Experience"
+#| cap-location: top
+#| 
+#| 
 
 experience <- cvdata$Software
 
@@ -214,10 +233,9 @@ Whilst I was employed by Royal London during years 2013 - 2020 I was assigned a 
 
 Below I have mapped my historical ratings to a probability density of performance across all percentiles. The density is calculated by the relative frequency of each rating awarded to me, divided over the percentiles of employee performance that rating represents. I have also included the probability density you would expect from an actuary selected randomly from Royal London, for comparison purposes.
 
-**Figure 2: Performance rating density whilst at Royal London**
-
 ```{r}
-#| label: RL-Performance
+#| label: fig-RL-Performance
+#| fig-cap: "Performance rating density whilst at Royal London"
 #| 
 actuary.levels <- c("Random Actuary", "Paul Beard")
 grade.levels <- cvdata$`RL Performance`$grade
