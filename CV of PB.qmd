@@ -1,18 +1,19 @@
 ---
 title: "Paul Beard FIA"
-format: pdf
+format: 
+  pdf:
+    fig-pos: "H"
 editor: visual
 fig-width: 6
 fig-asp: 0.618
 out-width: "70%" 
 fig-align: center
+tbl-cap-location: top
+fig-cap-location: top
 mainfont: Arial
 fontsize: 10pt
-
-
-execute: 
+execute:
   echo: false
-fig-pos: "H"
 ---
 
 ```{r}
@@ -39,9 +40,9 @@ cvdata <- read.all.excel.sheets(data.filepath)
 
 ```
 
-**Summary**
+# **Summary**
 
--   I am a high performing Fellow of the Institute of Actuaries working in the life insurance industry for 10 years, with 5 years post qualification. I have a diverse range of work experience with my main areas of speciality being:
+-   I am a high performing Fellow of the Institute of Actuaries working in the life insurance industry for `r {as.numeric((now() - ISOdate(2012,9,3))/365.25) %>% floor()}` years, with `r {as.numeric((now() - ISOdate(2017,12,1))/365.25) %>% floor()}` years post qualification. I have a diverse range of actuarial work experience, with my main areas of speciality being:
 
     -   With Profits Management
 
@@ -51,13 +52,13 @@ cvdata <- read.all.excel.sheets(data.filepath)
 
 <!-- -->
 
--   I am proficient across a variety of platforms, with emphasis on Excel and R (see @fig-software-experience). I can develop complex models; build self-checks; debug established code; and peer review work. I am also capable of methodology development, and have done this across a variety of areas through my career. I am meticulous and am able to think through any complexities encountered. I am technically minded and am capable of finding solutions to novel problems.
+-   I am technically strong and have a breadth of experience developing complex models. I am proficient across a variety of platforms, with emphasis on Excel and R (see @fig-software-experience).
 
 <!-- -->
 
 -   I have a fantastic track record of performance, both academically (see @tbl-qual-hist) and in a work environment (see @fig-RL-Performance).
 
-**Qualifications**
+# **Qualifications**
 
 ```{r}
 #| label: tbl-qual-hist
@@ -72,8 +73,15 @@ tribble(~Qualification,~`Awarded By`,~Grade,~`Subject(s)`,~Date,
         "Masters", "University of Cambridge", "2.i", "Natural Sciences (Chemistry)", "Jul 2011",
         "A Level", NA, "A (x5)", "Maths, Further Maths, ...", "Aug 2007",
         "GCSE", NA, "A* (x8); A (x3)", "Maths, English, ...", "Aug 2005")
-kableExtra::kable(qual.hist, booktabs = TRUE) %>%
-  row_spec(row = 0, background = "steelblue1") %>%
+options(knitr.kable.NA = "")
+background.colours <- map(qual.hist, function(x) ifelse(is.na(x),"#e5e5e5","white"))
+qual.table <- kableExtra::kable(qual.hist) %>%
+  row_spec(row = 0, background = 	"#b0c4de") 
+for (i in seq_along(1:length(background.colours))) {
+qual.table <- qual.table %>%
+  column_spec(i, background = background.colours[[i]])
+}
+qual.table %>% 
   kable_styling(latex_options = "scale_down")
 ```
 
@@ -83,57 +91,53 @@ Other achievements include:
 
 -   IFoA Certificate in Data Science (awarded by IFoA in Dec 2020)
 
-**Work Experience**
+# **Work Experience**
 
-**Phoenix Group (Apr 2023 -  Feb 2024)** - Contractor 
+## **Phoenix Group (Apr 2023** — **Feb 2024)** - Contractor 
 
-BPA Assumptions Architecture (April 2023 - Feb 2024)
+### BPA Assumptions Architecture (April 2023 — Feb 2024)
 
--   Phoenix uses MG-Alfa as their main valuation platform. The tables used by MG-Alfa are created through a set of complex spreadsheets. In this role I developed the spreadsheets that fed BPA assumptions into the MG-Alfa capital model. This was part of a project to adapt the model to an increasing BPA portfolio. 
+-   Phoenix uses MG-Alfa as their main valuation platform. The tables fed into MG-Alfa were created through a set of complex spreadsheets. In this role I developed these spreadsheets in co-ordination with the release cycle.
 
--   These spreadsheets contained a great deal of complexity after years of projects building piecemeal over the top. Therefore, as well as developing I often performed deep dives to restructure the spreadsheets to make the calculation clearer, more efficient and transparent.
+-   Created a sophisticated comparison tool in R which could compare two complex assumptions spreadsheets. By replicating the tenets of how MG-Alfa reads table structures, the tool could produce an intelligent breakdown of assumption table changes. The tool was packaged and rolled out to other actuaries.
 
--   Created a sophisticated comparison tool in R which could compare two complex assumptions spreadsheets. By replicating the tenets of how MG-Alfa reads table structures, the tool can produce an intelligent breakdown of the changes that were made to the assumptions tables. The tool was packaged up and rolled out to assist other actuaries working in the assumptions space.
+## **Royal London (Sep 2012** — **Apr 2023)** - Permanent
 
-**Royal London (Sep 2012 -  Apr 2023)** - Permanent
-
-Credit Quality Assessor of Commercial Real Estate Loans (CRELs) (August  2021 - April 2023)
+### Credit Quality Assessor of Commercial Real Estate Loans (CRELs) (Aug 2021 — Apr 2023)
 
 -   Royal London looked to expand the illiquid asset classes it invests in as part of its Matching Adjustment portfolio. This entailed the inclusion of CRELs. In this role I developed an internal credit quality assessment process (ICQA) for CRELs. As this asset class was new to the company, it required a lot of development from ground level.
 
 -   As part of the role I created a complex stochastic model in R which captures the intricate cash flow structure of CRELs. The model simulates defaults across multiple correlated tenants over many time periods, and evaluates the outcomes of the loans to assess the credit quality. 
 
--   After developing the ICQA process for CRELs, I developed the internal model risk calibration for CREL risk. This combined my experience of CRELs with my experience of internal model calibration. As per the ICQA methodology the I developed most of the framework. 
+-   After developing the ICQA process for CRELs, I then developed the internal model risk calibration for CREL risk.
 
-Actuarial Student Overseer (June 2018 - November 2021)
+### Actuarial Student Overseer (Jun 2018 — Nov 2021)
 
 -   Volunteered as coordinator and advisor to over 60 students sitting exams at Royal London. This role has required strong communication and leadership skills. I made sure to always be approachable to the students, and keep open paths of dialogue. 
 
-Internal Model Calibration (March 2018 - August 2021)
+### Internal Model Calibration (Mar 2018 — Aug 2021)
 
--   I worked on the development of the company’s Internal Model Application Process (IMAP). This covered a range of insurance risk type calibrations where I compiled reports on Longevity Trend, Longevity Level, GAO take-up, Persistency Level, Mortality and Morbidity risk. Some of these reports were very significant in size (\>100,000 words). I have also completed market risk calibrations including Commodity, Property and Market-to-market Dependencies.
-
--   The role required me to adapt many different processes, some that were developed by staff no longer present at the company. This required being able to understand methods with incomplete information and work autonomously, with little support. Have often had to make expert judgements. 
+-   I worked on the development of the company’s Internal Model Application Process (IMAP) and produced calibrations for Longevity, Persistency, Commodity, Property, Mortality/Morbidity risks, as well as Market-to-market Dependencies.
 
 -   Answered questions from both internal validators and the PRA about our IMAP methodology in a short period of time. Resolved validation findings in a timely manner.
 
 -   I have led many workshops to co-ordinate the opinions of experts in their respective fields, and form consensus on the assumptions and methodology used in the internal model calibrations.
 
-With Profits Management (Sept 2012 – March 2018)
+### With Profits Management (Sep 2012 — Mar 2018)
 
 -   Within this role I carried out regular analysis on bonus supportability for With Profits business and became a subject matter expert and led a team of actuarial staff to complete year end final bonus reports.
 
--   Involved in many with profits management tasks including (but not limited to) bonus setting, projections, run off planning, estate distribution and remediations.
+-   I was involved in many with profits management tasks including (but not limited to) bonus setting, projections, run-off planning, estate distribution and remediations.
 
 -   I have been involved in many bespoke projects, the most material being:
 
-    -   Guaranteed Annuity Option (GAO) compromise scheme, where I priced values of GAOs and proposed appropriate buyout offers under the scheme. This was done to the satisfaction of both an Independent Actuary and With Profits Actuary. 
+    -   Guaranteed Annuity Option (GAO) compromise scheme pricing
 
-    -   Surrender value changes, where I developed novel spreadsheet models capable of calculating factors that would align surrender values.
+    -   Surrender value methodology development
 
-    -   Prophet to MG-Alfa model reconciliation, where I reconciled asset share outputs from a newly developed MG-Alfa model, with the legacy Prophet model. This involved debugging the cash flow model calculations.
+    -   Prophet to MG-Alfa model reconciliation
 
-**Software Experience**
+# **Software Experience**
 
 ```{r}
 #| label: fig-software-experience
@@ -227,7 +231,7 @@ ggplot(ggdata, aes(
   )
 ```
 
-**Performance**
+# **Performance**
 
 Whilst I was employed by Royal London during years 2013 - 2020 I was assigned a performance rating each year, as were all staff. Employees were placed in one of four bands which represent different percentile ranges of performance relative to colleagues. Those bands, and the amount of times I was placed in each band over the 8 year period, are: Improvement Required (0); Good (3); Strong (4) and Exceptional (1). 
 
@@ -236,6 +240,7 @@ Below I have mapped my historical ratings to a probability density of performanc
 ```{r}
 #| label: fig-RL-Performance
 #| fig-cap: "Performance rating density whilst at Royal London"
+#| fig-asp: 0.5
 #| 
 actuary.levels <- c("Random Actuary", "Paul Beard")
 grade.levels <- cvdata$`RL Performance`$grade
@@ -279,7 +284,7 @@ ggplot(data, aes(ymin = 0)) +
   facet_wrap(~actuary)
 ```
 
-**Other Projects**
+# **Other Projects**
 
 I write and publish articles applying actuarial tools to publicly available data. These include:
 
