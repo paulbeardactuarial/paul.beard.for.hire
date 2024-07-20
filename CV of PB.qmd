@@ -87,6 +87,9 @@ qual.hist %>%
       cell_text(color = "grey95")
       ),
       fn = \(x) is.na(x)
+  ) %>% 
+    tab_options(
+    table.width = 775
   )
 ```
 
@@ -98,7 +101,9 @@ Other achievements include:
 
 # **Software Experience**
 
-The plot below demonstrates my career experience accumulated, and the relative recency. Please note the scale is logarithmic.
+The plot below demonstrates my career experience, both total accumulation and the relative recency.
+
+Please note the scale is logarithmic.
 
 ```{r}
 #| label: fig-software-experience 
@@ -256,15 +261,15 @@ performance_rating_plot %>% ggplotly()
 
 -   The project was completed for the pricing team in the BPA schemes reinsurance. The project entailed migrating the entire pricing process to a single R workflow. This migration included building the following complex pricing models, that were originally in Excel / SAS, into R:
 
-    -   Pension Value escalation model
+    -   Pension Value Escalation model
 
     -   Proportion Married / Proprtion Transferred Out derivation models
 
-    -   Experience Analysis
+    -   Experience Analysis model
 
-    -   Actual over Expected Analysis and Adjustments
+    -   Actual over Expected Analysis and Adjustment mode
 
-    -   Net Present Value Cashflow models
+    -   Net Present Value Cashflow model
 
 -   The project was a large complex piece, completed over 6 months. I was the sole R developer of a package and Quarto book that together could perform all pricing calculations required. I worked with Git and Azure during this project.
 
