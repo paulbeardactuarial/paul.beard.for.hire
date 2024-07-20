@@ -59,14 +59,12 @@ cvdata <- read_all_excel_sheets(data_filepath)
 
 <!-- -->
 
--   I have a fantastic track record of performance, both academically (see @tbl-qual-hist) and in a work environment (see @fig-RL-Performance).
+-   I have a fantastic track record of performance, both academically and in a work environment (see @fig-RL-Performance).
 
 # **Qualifications**
 
 ```{r}
-#| label: tbl-qual-hist
-#| tbl-cap: "Qualification History"
-#| tbl-cap-location: top
+#| label: qual-hist
 #| warning: false
 
 qual.hist <-
@@ -99,6 +97,8 @@ Other achievements include:
 -   IFoA Certificate in Data Science (awarded by IFoA in Dec 2020)
 
 # **Software Experience**
+
+The plot below demonstrates my career experience accumulated, and the relative recency. Please note the scale is logarithmic.
 
 ```{r}
 #| label: fig-software-experience 
@@ -254,9 +254,19 @@ performance_rating_plot %>% ggplotly()
 
 #### R Developer (Feb 2024 — Present)
 
--   Migrating entire pricing process to R
+-   The project was completed for the pricing team in the BPA schemes reinsurance. The project entailed migrating the entire pricing process to a single R workflow. This migration included building the following complex pricing models, that were originally in Excel / SAS, into R:
 
--   Lots of work in R
+    -   Pension Value escalation model
+
+    -   Proportion Married / Proprtion Transferred Out derivation models
+
+    -   Experience Analysis
+
+    -   Actual over Expected Analysis and Adjustments
+
+    -   Net Present Value Cashflow models
+
+-   The project was a large complex piece, completed over 6 months. I was the sole R developer of a package and Quarto book that together could perform all pricing calculations required. I worked with Git and Azure during this project.
 
 ### **Phoenix Group**
 
