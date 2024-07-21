@@ -263,11 +263,11 @@ performance_rating_plot %>% ggplotly()
 
     -   Pension Value Escalation model
 
-    -   Proportion Married / Proprtion Transferred Out derivation models
+    -   Proportion Married / Proportion Transferred Out derivation models
 
     -   Experience Analysis model
 
-    -   Actual over Expected Analysis and Adjustment mode
+    -   Actual over Expected Analysis and Adjustment model
 
     -   Net Present Value Cashflow model
 
