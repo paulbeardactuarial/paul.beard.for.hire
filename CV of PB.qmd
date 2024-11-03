@@ -47,6 +47,8 @@ cvdata <- read_all_excel_sheets(data_filepath)
 
 -   I am a high performing Fellow of the Institute of Actuaries working in the life insurance industry for `r {floor(interval(ISOdate(2012,9,3), now()) / years(1))}` years, with `r {floor(interval(ISOdate(2017,12,1), now()) / years(1))}` years post qualification. I have a diverse range of actuarial work experience, with my main areas of speciality being:
 
+    -   R Developer
+
     -   With Profits Management
 
     -   Internal Model Risk Calibration
@@ -101,7 +103,7 @@ Other achievements include:
 
 # **Software Experience**
 
-The plot below demonstrates my career experience, both total accumulation and the relative recency.
+The plot below demonstrates my career experience, both total accumulation and the relative recency. The figures are estimates as at 31/12/2024.
 
 Please note the scale is logarithmic.
 
@@ -193,7 +195,7 @@ software_experience_plot %>% ggplotly(tooltip = c("y", "fill", "label"))
 
 # **Performance**
 
-Whilst I was employed by Royal London during years 2013 - 2020 I was assigned a performance rating each year, as were all staff. Employees were placed in one of four bands which represent different percentile ranges of performance relative to colleagues. Those bands, and the amount of times I was placed in each band over the 8 year period, are: Improvement Required (0); Good (3); Strong (4) and Exceptional (1). 
+Whilst employed by Royal London during years 2013 - 2020 I was assigned a performance rating each year, as were all staff. Employees were placed in one of four bands which represent different percentile ranges of performance relative to colleagues. Those bands, and the amount of times I was placed in each band over the 8 year period, are: Improvement Required (0); Good (3); Strong (4) and Exceptional (1). 
 
 Below I have mapped my historical ratings to a probability density of performance across all percentiles. The density is calculated by the relative frequency of each rating awarded to me, divided over the percentiles of employee performance that rating represents. I have also included the probability density you would expect from an actuary selected randomly from Royal London, for comparison purposes.
 
@@ -259,19 +261,37 @@ performance_rating_plot %>% ggplotly()
 
 #### R Developer (Feb 2024 — Present)
 
--   The project was completed for the pricing team in the BPA schemes reinsurance. The project entailed migrating the entire pricing process to a single R workflow. This migration included building the following complex pricing models, that were originally in Excel / SAS, into R:
+-   The initial project was completed for UK reinsurance pricing of BPA schemes. The project entailed migrating the entire pricing process from Excel / SAS / Word, to a single R workflow. I was the lead developer of an R package and Quarto book that together could perform all pricing calculations required.
+
+-   The migration included building the many complex pricing models in R, some of these include:
 
     -   Pension Value Escalation model
 
-    -   Proportion Married / Proportion Transferred Out derivation models
+    -   Proportion Married & Proportion Transferred Out derivation models
 
     -   Experience Analysis model
 
-    -   Actual over Expected Analysis and Adjustment model
+    -   Actual vs Expected Analysis and Adjustment model
 
     -   Net Present Value Cashflow model
 
--   The project was a large complex piece, completed over 6 months. I was the sole R developer of a package and Quarto book that together could perform all pricing calculations required. I worked with Git and Azure during this project.
+    -   Risk Based Cashflow (i.e. Stressed Capital Requirement) models
+
+-   As well as being able to develop complex actuarial models, the project entailed the following:
+
+    -   High quality visualisations
+
+    -   Extensive reconciliation and testing
+
+    -   Developing functions that are flexible, fast and documented via Roxygen
+
+    -   Working with Git, Azure and Quarto
+
+    -   Development of code to interact directly with an API of Club Vita
+
+    -   Consideration of usability, to develop a template that other actuaries, with limited experience in R, could employ
+
+-   The initial contract was was for UK business and scheduled over 6 months. The project was completed successfully and to a high standard. The client, pleased with the product, decided to extend the contract for another 6 months to develop similar processes for non-UK business .
 
 ### **Phoenix Group**
 
@@ -281,7 +301,7 @@ performance_rating_plot %>% ggplotly()
 
 -   Phoenix uses MG-Alfa as their main valuation platform. The tables fed into MG-Alfa were created through a set of complex spreadsheets. In this role I developed these spreadsheets in co-ordination with the release cycle.
 
--   Created a sophisticated comparison tool in R which could compare two complex assumptions spreadsheets. By replicating the tenets of how MG-Alfa reads table structures, the tool could produce an intelligent breakdown of assumption table changes. The tool was packaged and rolled out to other actuaries.
+-   Whilst at Phoenix I created a sophisticated comparison tool in R which could compare two complex assumptions spreadsheets. By being able to replicate the tenets of how MG-Alfa reads table structures within R, the tool could produce an intelligent breakdown of assumption table changes which was superior to alternatives being used at the time (e.g. VBA cell-by-cell comparison, BeyondCompare). The tool was packaged and rolled out to other actuaries.
 
 ### **Royal London**
 
@@ -297,7 +317,7 @@ performance_rating_plot %>% ggplotly()
 
 #### Actuarial Student Overseer (Jun 2018 — Nov 2021)
 
--   Volunteered as coordinator and advisor to over 60 students sitting exams at Royal London. This role has required strong communication and leadership skills. I made sure to always be approachable to the students, and keep open paths of dialogue. 
+-   Volunteered as coordinator and adviser to over 60 students sitting exams at Royal London. This role has required strong communication and leadership skills. I made sure to always be approachable to the students, and keep open paths of dialogue. 
 
 #### Internal Model Calibration (Mar 2018 — Aug 2021)
 
@@ -327,7 +347,7 @@ I write and publish articles applying actuarial tools to publicly available data
 
 -   A mortality investigation of Coronation Street
 
--   An internal model risk calibration of cryptocurrency risk
+-   An internal model risk calibration for cryptocurrency risk
 
 -   An analysis of trends in IFoA exam pass rates
 
