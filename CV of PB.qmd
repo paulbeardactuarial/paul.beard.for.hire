@@ -50,7 +50,7 @@ cvdata <- read_all_excel_sheets(data_filepath)
 
 <!-- -->
 
--   I have a diverse range of actuarial work experience (see [Work Experience](#section-Work%20Experience)) with my main areas of specialty being:
+-   I have a diverse range of actuarial work experience with my main areas of specialty being:
 
     -   Longevity
 
