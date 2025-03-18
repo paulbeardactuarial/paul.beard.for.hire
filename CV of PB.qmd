@@ -266,9 +266,9 @@ Choosing Paul Beard is a superior strategy to choosing an actuary at random.
 
 ### **SCOR**
 
-*Employed as Contractor (Feb 2024 — Present)*
+*Employed as Contractor (Feb 2024 — Feb 2025)*
 
-#### R Developer for Longevity Pricing (Feb 2024 — Present)
+#### R Developer for Longevity Pricing (Feb 2024 — Feb 2025)
 
 -   The initial project was completed for UK reinsurance pricing of BPA schemes. The project entailed migrating the entire pricing process from Excel / SAS / Word, to a single R workflow. I was the lead developer of an R package and Quarto book that together could perform all pricing calculations required.
 
